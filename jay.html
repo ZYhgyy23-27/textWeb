@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jay</title>
+    <style>
+        .slider-indicator{
+            background-color: rgb(187, 228, 228);
+            width: 100px;
+            position: relative;
+            left: 50px;
+        }
+        .box3{
+            position: relative;
+            left: 1000px;
+            bottom: 900px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;" >歌曲小网站</h1>
+    <div class="slider">
+        <div class="slider-wapper">
+            <img src="preview1.jpg" alt="" width="250" onclick="location.reload()">
+        </div>
+    </div>
+    <div class="slider-footer">
+        <p>哈哈哈哈哈哈</p>
+        <ul class="slider-indicator">
+        <li class="slider1">
+            <p>hhh</p> <a href="#" target="_blank">传送门</a>
+        <li class="slider2">
+            <p>hhh</p> <a href="#" target="_blank">传送门</a>
+        </li>
+        <li class="slider3">
+            <p>hhh</p> <a href="#" target="_blank">传送门</a>
+        </li>
+        </ul>
+    </div>
+    <div class="box1">
+    </div>
+    <img src="preview2.avif" alt="" width="250">
+    <div class="box2">
+        <ul>
+            <li>我还想她</li> <a href="https://www.bilibili.com/video/BV1qN4y1H7BV/?spm_id_from=333.337.search-card.all.click" target="_blank">传送门</a>
+        </ul>
+    </div>
+    <div class="box3">
+        <img src="preview8.avif" alt="" width="1000px">
+    </div>
+
+    <script>
+        const sliderData=[
+            {url: './preview1.jpg',title:'《依然范特西》',color:'rgb(111,234,42)',
+            song:'退后',transmit:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=84",
+            song2:'夜的第七章',transmit2:'https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=78',
+            song3:'菊花台',transmit3:'https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=89' },
+            {url: './preview4.avif',title:'《范特西》',color:'rgb(111,24,421)',
+            song:'简单爱',transmit:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=14",
+            song2:'爱在西元前',transmit2:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=89",
+            song3:'开不了口',transmit3:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=16"},
+            {url: './preview5.avif',title:'《叶惠美》',color:'rgb(11,24,49)',
+            song:'晴天',transmit:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=38",
+            song2:'以父之名',transmit2:'https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=36',
+            song3:'她的睫毛',transmit3:'https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=43'},
+            {url: 'preview6.avif',title:'《七里香》',color:'rgb(111,234,421)',
+            song:'七里香',transmit:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=38",
+            song2:'搁浅',transmit2:'https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=56',
+            song3:'园游会',transmit3:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=59"},
+            {url: 'preview7.avif',title:'《十一月的肖邦》',color:'rgb(111,34,21)',
+            song:'发如雪',transmit:"https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=64",
+            song2:'一路向北',transmit2:'https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=75',
+            song3:'枫',transmit3:'https://www.bilibili.com/video/BV1fx411N7bU?spm_id_from=333.788.videopod.episodes&vd_source=62c26fd34d611e799c70695e7506aa70&p=67' }
+        ]
+        //生成随机数
+        //function getRandom(N,M){
+        //    return Math.floor(Math.random()*(M-N+1))+N;
+        //}
+        let lastRandom=-1;
+        function getUniqueRandom(){
+            let random;
+            do{
+                random=parseInt(Math.random()*sliderData.length);
+            }while(random==lastRandom);
+            return random;
+        }
+    const random=parseInt(Math.random()*sliderData.length);
+    //console.log(sliderData[random]);
+    //把对应数据渲染到标签里
+    //获取图片
+    const img=document.querySelector('.slider-wapper img')
+    //修改图片路径
+    img.src=sliderData[random].url
+    //把p内的文字更换
+    //获取p
+    const p=document.querySelector('.slider-footer p')
+    //修改p
+    p.innerHTML=sliderData[random].title
+    //修改背景颜色
+    //const footer=document.querySelector('.slider-footer p')
+    //footer.style.backgroundColor=sliderData[random].color
+
+    //获取li
+    const li=document.querySelector('.slider1 p');
+    const li2=document.querySelector('.slider2 p');
+    const li3=document.querySelector('.slider3 p')
+    //修改li
+    li.innerHTML=sliderData[random].song;
+    li2.innerHTML=sliderData[random].song2;
+    li3.innerHTML=sliderData[random].song3;
+    //获取a
+    const a=document.querySelector(".slider1 a");
+    const a2=document.querySelector(".slider2 a");
+    const a3=document.querySelector(".slider3 a");
+    a.href=sliderData[random].transmit;
+    a2.href=sliderData[random].transmit2;
+    a3.href=sliderData[random].transmit3;
+    </script>
+</body>
+</html>
